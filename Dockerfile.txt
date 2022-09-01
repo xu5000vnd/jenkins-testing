@@ -1,3 +1,4 @@
 FROM nginx
 COPY /home/ubuntu/testing.conf /etc/nginx/conf.d
 RUN cp -r /home/ubuntu/index.html /var/www
+EXPOSE 80:80
