@@ -1,7 +1,9 @@
 - hosts: all
   tasks:
-    - name: create /var/www
-      command: mkdir /var/www
+    - name: Creates directory
+      file:
+        path: /src/www
+        state: directory
     - name: Copy file index.html to another server
       copy:
         src: /home/ubuntu/index.html
