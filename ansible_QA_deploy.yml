@@ -2,7 +2,7 @@
   tasks:
     - name: Creates directory
       file:
-        path: /src/www
+        path: /var/www
         state: directory
     - name: Copy file index.html to another server
       copy:
