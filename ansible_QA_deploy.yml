@@ -1,5 +1,7 @@
 - hosts: all
   tasks:
+    - name: create /var/www
+      command: mkdir /var/www
     - name: Copy file index.html to another server
       copy:
         src: /home/ubuntu/index.html
@@ -8,18 +10,18 @@
       copy:
         src: Dockerfile
         dest: .
-    - name: docker stop container
-      command: docker stop containerName
+   - name: docker stop container
+      command: docker stop custom-container
       ignore_errors: true
     - name: docker remove container
-      command: docker rm containerName
+      command: docker rm custom-container
       ignore_errors: true
     - name: docker remove image
-      command: docker rmi imageName
+      command: docker rmi custom-image
       ignore_errors: true
     - name: docker rebuild image
-      command: docker build -t image-name .
+      command: docker build -t custom-image .
       ignore_errors: true
     - name: docker run image
-      command: docker run -d --name containerName image-name
+      command: docker run -d -p 80:80 --name custom-container custom-image
       ignore_errors: true
