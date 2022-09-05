@@ -1,0 +1,17 @@
+- hosts: all
+  tasks:
+    - name: docker stop container
+      command: docker stop custom-container
+      ignore_errors: true
+    - name: docker remove container
+      command: docker rm custom-container
+      ignore_errors: true
+    - name: docker remove image
+      command: docker rmi custom-image
+      ignore_errors: true
+    - name: docker rebuild image
+      command: docker build -t custom-image .
+      ignore_errors: true
+    - name: docker run image
+      command: docker run -d --name containerName custom-image
+      ignore_errors: true
