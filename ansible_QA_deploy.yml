@@ -1,0 +1,25 @@
+- hosts: all
+  tasks:
+    - name: Copy file index.html to another server
+      copy:
+        src: /home/ubuntu/index.html
+        dest: /var/www/index.html
+    - name: Copy Docker file to another server
+      copy:
+        src: Dockerfile
+        dest: .
+    - name: docker stop container
+      command: docker stop containerName
+      ignore_errors: true
+    - name: docker remove container
+      command: docker rm containerName
+      ignore_errors: true
+    - name: docker remove image
+      command: docker rmi imageName
+      ignore_errors: true
+    - name: docker rebuild image
+      command: docker build -t image-name .
+      ignore_errors: true
+    - name: docker run image
+      command: docker run -d --name containerName image-name
+      ignore_errors: true
