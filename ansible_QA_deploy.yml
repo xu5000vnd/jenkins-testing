@@ -1,13 +1,21 @@
 - hosts: all
   tasks:
-    - name: Creates directory
-      file:
-        path: /var/www
-        state: directory
+    # - name: Creates directory
+    #   file:
+    #     path: /var/www
+    #     state: directory
+    # - name: Copy file index.html to another server
+    #   copy:
+    #     src: /home/ubuntu/index.html
+    #     dest: /var/www/index.html
+    - name: Copy file config host to another server
+      copy:
+        src: testing.conf
+        dest: .
     - name: Copy file index.html to another server
       copy:
-        src: /home/ubuntu/index.html
-        dest: /var/www/index.html
+        src: index.html
+        dest: .
     - name: Copy Docker file to another server
       copy:
         src: Dockerfile
