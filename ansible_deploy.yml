@@ -13,5 +13,5 @@
       command: docker build -t custom-image .
       ignore_errors: true
     - name: docker run image
-      command: docker run -d --name containerName custom-image
+      command: docker run -d -p 80:80 --name custom-container custom-image
       ignore_errors: true
