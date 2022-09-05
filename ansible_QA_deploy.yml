@@ -10,7 +10,7 @@
       copy:
         src: Dockerfile
         dest: .
-   - name: docker stop container
+    - name: docker stop container
       command: docker stop custom-container
       ignore_errors: true
     - name: docker remove container
@@ -23,5 +23,5 @@
       command: docker build -t custom-image .
       ignore_errors: true
     - name: docker run image
-      command: docker run -d -p 80:80 --name custom-container custom-image
+      command: 'docker run -d -p 80:80 --name custom-container custom-image'
       ignore_errors: true
