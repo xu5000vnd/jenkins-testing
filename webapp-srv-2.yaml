@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkin-testing
+
+spec:
+  selector:
+    mylablename: webapp
+    release: "0"
+    #release: v1.0.5
+  ports:
+    - name: http
+      port: 80
+      nodePort: 30080
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkin-queue
+
+spec:
+  selector:
+    mylablename: queue
+  ports:
+    - name: http
+      port: 8161
+      nodePort: 3001
+  type: NodePort

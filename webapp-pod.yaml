@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp
+  labels:
+    mylablename: webapp
+    release: "0"
+
+spec:
+  containers:
+  - name: webapp
+    image: horison/testing-app:lastest
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-release-v1.0.5
+  labels:
+    mylablename: webapp
+    release: v1.0.5
+spec:
+  containers:
+  - name: webapp
+    image: horison/testing-app:v1.0.5

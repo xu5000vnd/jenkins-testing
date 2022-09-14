@@ -1,0 +1,19 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  minReadySeconds: 30
+  selector:
+    matchLabels:
+      mylablename: webapp
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      name: webapp
+      labels:
+        mylablename: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: horison/testing-app:lastest
